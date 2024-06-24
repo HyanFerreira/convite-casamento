@@ -18,6 +18,10 @@
     text-decoration: none;
 }
 
+body {
+    overflow: hidden;
+}
+
 .overflow {
     position: absolute;
     top: 0;
