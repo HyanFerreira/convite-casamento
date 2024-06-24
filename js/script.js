@@ -16,12 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
     selo.classList.add('active');
     setTimeout(() => {
       envelopeSup.classList.add('z-index-zero');
-    }, 1300);
+    }, 1000);
     setTimeout(() => {
       container.classList.add('overflow');
-    }, 1900);
+    }, 1800);
     setTimeout(() => {
       main.classList.add('active');
-    }, 2700);
+      main.style.padding = '0';
+    }, 2400);
   });
 });

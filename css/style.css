@@ -71,10 +71,9 @@
     /* background: var(--bg-envelope-color); */
     box-shadow: 0 0 40px var(--shadow-color);
     transform: translateY(0);
-    transition: transform ease-in-out 900ms 1.3s;
+    transition: transform ease-in-out 900ms 1s;
     z-index: 3;
 }
-
 
 .container>.envelope-wrapper.active {
     transform: translateY(100%);
@@ -85,7 +84,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) translateY(0);
-    transition: transform ease-in-out 900ms 1.3s;
+    transition: transform ease-in-out 900ms 1s;
     background: var(--bg-envelope-color);
     width: 300px;
     height: 230px;
@@ -110,7 +109,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) translateY(0);
-    transition: transform ease-in-out 900ms 1.3s;
+    transition: transform ease-in-out 900ms 1s;
     z-index: 3;
 }
 
@@ -131,7 +130,7 @@
     border-left: 150px solid transparent;
     top: 0;
     transform-origin: top;
-    transition: all 0.5s ease-in-out 0.7s;
+    transition: all 0.5s ease-in-out 0.1s;
 }
 
 .envelope-wrapper .envelope::after {
@@ -237,6 +236,7 @@
     transform: translate(-50%, -50%) translateY(0);
     width: 300px;
     height: 230px;
+    padding: 20px;
     background-color: transparent;
     z-index: 2;
     transition: width 0.8s ease, height 0.8s ease;
