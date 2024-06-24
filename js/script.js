@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
     setTimeout(() => {
       container.classList.add('overflow');
-    }, 1800);
+    }, 1600);
     setTimeout(() => {
       main.classList.add('active');
       main.style.padding = '0';
