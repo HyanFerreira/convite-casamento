@@ -36,6 +36,10 @@
     height: 100%;
 }
 
+.container-principal {
+    position: relative;
+}
+
 .container {
     position: relative;
     width: 100%;
