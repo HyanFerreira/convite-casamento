@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const selo = document.querySelector('.heart');
   const main = document.querySelector('.main-index');
   const container = document.querySelector('.container');
+  const containerConvite = document.querySelector('.container-convite');
+  const overflowIndex = document.querySelector('.overflow-index');
+  const animateElements = document.querySelectorAll('.animate');
+  const heartIndex = document.querySelector('.heart-index');
 
   clickConvite.addEventListener('click', () => {
     envelope.classList.add('flap');
@@ -21,8 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
       container.classList.add('overflow');
     }, 1600);
     setTimeout(() => {
+      heartIndex.classList.add('overflow');
+    }, 1800);
+    setTimeout(() => {
       main.classList.add('active');
       main.style.padding = '0';
-    }, 2400);
+    }, 2200);
+    setTimeout(() => {
+      containerConvite.style.opacity = '1';
+      overflowIndex.classList.add('active');
+    }, 3000);
+    animateElements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add('active');
+      }, 3600 + index * 300);
+    });
   });
 });

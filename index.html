@@ -9,6 +9,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <title>Um Convite Para Você</title>
 </head>
@@ -28,20 +34,43 @@
                 <div class="envelope"></div>
             </div>
             <div class="heart">
-                <!-- <img src="./img/selo_convite.svg" alt=""> -->
+                <img src="./img/coracion_blue.svg" alt="">
             </div>
         </div>
         <main class="main-index">
+            <div class="heart-index">
+                <img src="./img/coracion_blue_oak.svg" alt="">
+            </div>
             <div class="content-index">
-                <div class="welcome">
-                    <h1>For You</h1>
+                <div class="overflow overflow-index display-none">
+                    <img src="./img/bg.png" alt="">
                 </div>
-                <div class="container-convite">
-                    <img src="./img/imagem_casal_moldura.png" alt="">
+                <div class="container-convite display-none">
+                    <div class="casal-img animate">
+                        <img src="./img/imagem_casal_moldura.png" alt="">
+                    </div>
+                    <div class="casal-name animate">
+                        <h1>Emily e Luan</h1>
+                    </div>
+                    <div class="text-convite animate">
+                        <span>Têm o prazer de convidá-lo(a) para o seu casamento</span>
+                    </div>
+                    <div class="buttons-convite animate">
+                        <button class="btn">
+                            Confirmar presença
+                            <!-- <ion-icon class="ion-person" name="person-outline"></ion-icon> -->
+                        </button>
+                        <button class="btn">
+                            Lista de presentes
+                            <!-- <ion-icon class="ion-gift" name="gift-outline"></ion-icon> -->
+                        </button>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
