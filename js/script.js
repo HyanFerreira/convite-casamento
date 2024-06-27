@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const overflowIndex = document.querySelector('.overflow-index');
   const animateElements = document.querySelectorAll('.animate');
   const heartIndex = document.querySelector('.heart-index');
+  let btnAudio = document.getElementById('btnAudio');
+  let audio = document.getElementById('audio');
 
   clickConvite.addEventListener('click', () => {
     envelope.classList.add('flap');
@@ -18,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     envelopeSup.classList.add('active');
     envelopeBg.classList.add('active');
     selo.classList.add('active');
+    btnAudio.style.right = '0';
+    setTimeout(() => {
+      audio.play();
+    }, 500);
     setTimeout(() => {
       envelopeSup.classList.add('z-index-zero');
     }, 1000);

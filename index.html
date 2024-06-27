@@ -20,6 +20,10 @@
 </head>
 
 <body>
+    <audio id="audio" src="./audio/John Legend - All of Me (Lyrics).mp3"></audio>
+    <button class="btn btnAudio" id="btnAudio">
+        <ion-icon id="ionIcon" name="pause"></ion-icon>
+    </button>
     <div class="overflow">
         <img src="./img/bg.png" alt="">
     </div>
@@ -34,7 +38,7 @@
                 <div class="envelope"></div>
             </div>
             <div class="heart">
-                <img src="./img/coracion_blue.svg" alt="">
+                <img src="./img/selo.svg" alt="">
             </div>
         </div>
         <main class="main-index">
@@ -58,11 +62,9 @@
                     <div class="buttons-convite animate">
                         <button class="btn">
                             Confirmar presença
-                            <!-- <ion-icon class="ion-person" name="person-outline"></ion-icon> -->
                         </button>
                         <button class="btn">
                             Lista de presentes
-                            <!-- <ion-icon class="ion-gift" name="gift-outline"></ion-icon> -->
                         </button>
                     </div>
                 </div>
@@ -72,6 +74,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/control-media.js"></script>
 </body>
 
 </html>
