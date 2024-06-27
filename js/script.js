@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
       heartIndex.classList.add('overflow');
     }, 1800);
     setTimeout(() => {
+      heartIndex.style.display = 'none';
       main.classList.add('active');
       main.style.padding = '0';
     }, 2200);
