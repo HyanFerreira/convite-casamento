@@ -13,6 +13,27 @@ document.addEventListener('DOMContentLoaded', function() {
   let btnAudio = document.getElementById('btnAudio');
   let audio = document.getElementById('audio');
 
+  const click = document.querySelector('.click');
+  const pulse = document.querySelector('.pulse');
+  const pulseSpans = document.querySelectorAll('.pulse span');
+
+  setTimeout(() => {
+    click.classList.add('active');
+  }, 1200);
+  setTimeout(() => {
+    pulse.classList.add('active');
+    pulseSpans.forEach(span => {
+      span.classList.add('active');
+    });
+  }, 1800);
+  setTimeout(() => {
+    pulse.classList.remove('active');
+    click.classList.remove('active');
+    pulseSpans.forEach(span => {
+      span.classList.remove('active');
+    });
+  }, 4000);
+
   clickConvite.addEventListener('click', () => {
     envelope.classList.add('flap');
     envelopeSup.classList.add('flap');
