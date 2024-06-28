@@ -71,7 +71,7 @@
                         <span>Têm o prazer de convidá-lo(a) para o seu casamento</span>
                     </div>
                     <div class="buttons-convite animate">
-                        <button class="btn">
+                        <button class="btn openConfirmPresence">
                             Confirmar presença
                         </button>
                         <button class="btn openGiftList">
@@ -89,7 +89,48 @@
                 <ion-icon name="arrow-back"></ion-icon>
             </button>
             <div class="container-modal">
-                <div class="content-presence"></div>
+                <div class="content-presence">
+                    <h1>Confirme sua presença</h1>
+                    <form class="form-presence" action="https://formsubmit.co/casamentoemilyluan@gmail.com"
+                        method="POST">
+                        <div class="label-input">
+                            <label for="name">Digite seu nome:</label>
+                            <input type="text" name="Nome" id="name" class="nameLabel">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html">
+                            <input type="hidden" name="_template" value="box">
+                            <input type="hidden" name="_subject" value="Nova confirmação!">
+                            <span id="errorName"></span>
+                        </div>
+                        <div class="label-input">
+                            <label for="presence">Você irá comparecer ao evento?</label>
+                            <input type="hidden" name="Presença" id="presenceConfirmation">
+                            <div class="box-presence">
+                                <div class="checkbox selected">
+                                    <div class="checkbox-input"></div>
+                                    <label for="sim">Sim</label>
+                                </div>
+                                <div class="checkbox">
+                                    <div class="checkbox-input"></div>
+                                    <label for="nao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gift-list-presence">
+                            <span>Presente(s) selecionado(s):</span>
+                            <div class="gift-list-selected">
+                                <span>0 presentes selecionados</span>
+                                <input type="hidden" name="Presente(s)" id="selectedGifts">
+                            </div>
+                            <div class="area-btn-addGift">
+                                <div class="btn btnAddGift">Editar/Adicionar presente(s)</div>
+                                <button class="btn btnConfirmPresence" id="submitButton" type="submit">Enviar
+                                    confirmação</button>
+                            </div>
+                            <span id="errorSubmit"></span>
+                        </div>
+                    </form>
+                </div>
                 <div class="gift-list">
                     <div class="model-gift">
                         <div class="gift">
@@ -106,12 +147,34 @@
                         <div class="content-cozinha"></div>
                     </div>
                     <div class="content-confirm">
+                        <button class="btn clearGiftItem">Excluir presente(s)</button>
                         <button class="btn btnConfirmGift">Confirmar presente(s)</button>
+                    </div>
+                </div>
+                <div class="content-loading">
+                    <h1>Enviando confirmação</h1>
+                    <div class="loading">
+                        <span style="--i:1;"></span>
+                        <span style="--i:2;"></span>
+                        <span style="--i:3;"></span>
+                        <span style="--i:4;"></span>
+                        <span style="--i:5;"></span>
+                        <span style="--i:6;"></span>
+                        <span style="--i:7;"></span>
+                        <span style="--i:8;"></span>
+                        <span style="--i:9;"></span>
+                        <span style="--i:10;"></span>
+                        <span style="--i:11;"></span>
+                        <span style="--i:12;"></span>
+                        <span style="--i:13;"></span>
+                        <span style="--i:14;"></span>
+                        <span style="--i:15;"></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="./js/script.js"></script>

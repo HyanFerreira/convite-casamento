@@ -7,7 +7,7 @@ const giftList = [
   {
     id: 2,
     name: 'Batedeira',
-    selected: true,
+    selected: false,
   },
   {
     id: 3,

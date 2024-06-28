@@ -448,7 +448,158 @@
     justify-content: center;
 }
 
-.content-presence {}
+.content-presence {
+    width: 360px;
+    height: auto;
+    border-radius: 15px;
+    background-color: #558EB2;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 15px;
+    opacity: 0;
+    transition: all 900ms;
+    transform: translateY(-50px);
+}
+
+.content-presence.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-presence h1 {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.form-presence {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.label-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label-input label {
+    color: #FFFFFF;
+}
+
+.label-input input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.label-input input:focus {
+    outline: none;
+}
+
+.box-presence {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.checkbox {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.checkbox-input {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox.selected .checkbox-input {
+    border: 2px solid #558EB2;
+}
+
+.checkbox.selected .checkbox-input::before {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #558EB2;
+}
+
+.checkbox.selected {
+    background-color: #FFFFFF;
+}
+
+.checkbox.selected label {
+    color: #558EB2;
+}
+
+.gift-list-presence {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #FFFFFF;
+}
+
+.gift-list-selected {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    min-height: 120px;
+    height: auto;
+}
+
+.gift-list-selected span {
+    color: #000000;
+}
+
+.area-btn-addGift {
+    padding-top: 10px;
+    display: flex;
+    /* flex-direction: column; */
+    gap: 20px;
+}
+
+.area-btn-addGift button,
+.area-btn-addGift div {
+    width: 50%;
+    text-align: center;
+}
+
+.btnAddGift,
+.btnConfirmPresence {
+    background-color: #FFFFFF;
+    color: #558EB2;
+    font-weight: 500;
+    height: 50px;
+    font-size: 1rem;
+}
+
+#errorSubmit {
+    text-align: center;
+    font-weight: 500;
+}
 
 .gift-list {
     display: none;
@@ -510,7 +661,7 @@
     height: 530px;
     border-radius: 15px;
     background-color: #558EB2;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -527,6 +678,8 @@
 
 .content-gift h1 {
     color: #FFFFFF;
+    text-align: center;
+    font-size: 1.6rem;
 }
 
 .content-gift-list {
@@ -536,6 +689,63 @@
     gap: 20px;
     color: #FFFFFF;
     overflow: scroll;
+}
+
+.content-loading {
+    width: 330px;
+    height: 200px;
+    border-radius: 15px;
+    background-color: #558EB2;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 15px;
+    opacity: 0;
+    transition: all 900ms;
+    transform: translateY(-50px);
+}
+
+.content-loading.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-loading h1 {
+    color: #FFFFFF;
+    font-size: 1.6rem;
+}
+
+.loading {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    transform: rotate(calc(var(--i) * (360deg / 15))) translateY(35px);
+    animation: animate 1.5s linear infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+    opacity: 1;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .content-cozinha {
@@ -551,12 +761,25 @@
 
 .content-confirm {
     width: 100%;
+    display: flex;
+    gap: 20px;
 }
 
-.btnConfirmGift {
+.content-confirm button {
+    width: 50%;
+}
+
+.btnConfirmGift,
+.clearGiftItem {
     background-color: #FFFFFF;
     color: #558EB2;
     font-weight: 500;
-    width: 100%;
+    /* width: 100%; */
     height: 50px;
+    font-size: 1rem;
+}
+
+#errorName {
+    color: #FFFFFF;
+    font-weight: 500;
 }

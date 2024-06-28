@@ -13,32 +13,48 @@ document.addEventListener('DOMContentLoaded', function() {
   const heartIndex = document.querySelector('.heart-index');
   const btnAudio = document.getElementById('btnAudio');
   const audio = document.getElementById('audio');
+
   const click = document.querySelector('.click');
   const pulse = document.querySelector('.pulse');
   const pulseSpans = document.querySelectorAll('.pulse span');
+
   const openGiftList = document.querySelector('.openGiftList');
   const modal = document.querySelector('.modal');
   const contentGift = document.querySelector('.content-gift');
   const btnBack = document.querySelector('.btnBack');
-  const btnConfirmGift = document.querySelector('.btnConfirmGift');
   const alert = document.querySelector('.alert');
+  const btnConfirmGift = document.querySelector('.btnConfirmGift');
+  const openConfirmPresence = document.querySelector('.openConfirmPresence');
+  const contentPresence = document.querySelector('.content-presence');
+  const btnAddGift = document.querySelector('.btnAddGift');
+  const clearGiftItem = document.querySelector('.clearGiftItem');
 
   // Eventos de abertura e fechamento da lista de presentes
-  openGiftList.addEventListener('click', () => {
+  function openModal(content) {
     modal.classList.add('active');
+    content.style.display = 'flex';
     setTimeout(() => {
       btnBack.classList.add('active');
-      contentGift.classList.add('active');
+      content.classList.add('active');
     }, 200);
-  });
+  }
 
-  btnBack.addEventListener('click', () => {
+  function closeModal() {
     btnBack.classList.remove('active');
     contentGift.classList.remove('active');
+    contentPresence.classList.remove('active');
     setTimeout(() => {
+      contentGift.style.display = 'none';
+      contentPresence.style.display = 'none';
       modal.classList.remove('active');
     }, 600);
-  });
+  }
+
+  openGiftList.addEventListener('click', () => openModal(contentGift));
+  openConfirmPresence.addEventListener('click', () =>
+    openModal(contentPresence),
+  );
+  btnBack.addEventListener('click', closeModal);
 
   // Animações iniciais ao carregar a página
   setTimeout(() => {
@@ -155,6 +171,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 3000);
   }
 
+  function updateSelectedItemsDisplay() {
+    const selectedItems = getSelectedItems();
+    const giftListSelectedSpan = document.querySelector(
+      '.gift-list-selected span',
+    );
+
+    if (selectedItems.length === 0) {
+      giftListSelectedSpan.innerHTML = '0 presentes selecionados';
+      selectedGiftsInput.value = '0 presentes selecionados';
+    } else {
+      const selectedItemsNames = selectedItems
+        .map(item => item.name)
+        .join(', ');
+      giftListSelectedSpan.innerHTML = selectedItemsNames;
+      selectedGiftsInput.value = selectedItemsNames;
+    }
+  }
+
   // Evento ao clicar no botão para confirmar presentes
   btnConfirmGift.addEventListener('click', function() {
     const selectedItems = getSelectedItems();
@@ -162,10 +196,156 @@ document.addEventListener('DOMContentLoaded', function() {
       showAlert();
     } else {
       console.log(selectedItems);
-      // Aqui você pode fazer o que quiser com a variável selectedItems
+      updateSelectedItemsDisplay();
+      contentGift.classList.remove('active');
+      setTimeout(() => {
+        contentGift.style.display = 'none';
+        contentPresence.style.display = 'flex';
+      }, 200);
+      setTimeout(() => {
+        contentPresence.classList.add('active');
+      }, 400);
     }
+  });
+
+  btnAddGift.addEventListener('click', () => {
+    contentPresence.classList.remove('active');
+    setTimeout(() => {
+      contentPresence.style.display = 'none';
+      contentGift.style.display = 'flex';
+    }, 200);
+    setTimeout(() => {
+      contentGift.classList.add('active');
+    }, 400);
+  });
+
+  // Função para limpar a seleção de presentes
+  function clearGiftSelection() {
+    giftList.forEach(item => (item.selected = false));
+    const checkboxes = document.querySelectorAll('.gift-checkbox');
+    checkboxes.forEach(checkbox => (checkbox.checked = false));
+    updateSelectedItemsDisplay();
+  }
+
+  // Evento ao clicar no botão para limpar seleção de presentes
+  clearGiftItem.addEventListener('click', () => {
+    clearGiftSelection();
+    updateSelectedItemsDisplay();
+    contentGift.classList.remove('active');
+    setTimeout(() => {
+      contentGift.style.display = 'none';
+      contentPresence.style.display = 'flex';
+    }, 200);
+    setTimeout(() => {
+      contentPresence.classList.add('active');
+    }, 400);
   });
 
   // Inicialização da lista de presentes
   cloneGift();
+
+  // Validação de confifrmação
+  const nameInput = document.getElementById('name');
+  const nameLabel = document.querySelector('.nameLabel');
+  const errorName = document.getElementById('errorName');
+
+  const submitButton = document.getElementById('submitButton');
+  const errorSubmit = document.getElementById('errorSubmit');
+
+  const selectedGiftsInput = document.getElementById('selectedGifts');
+
+  const checkboxesPresence = document.querySelectorAll('.checkbox');
+  const presenceConfirmation = document.getElementById('presenceConfirmation');
+
+  // Função para obter o texto do label associado ao checkbox selecionado
+  function getSelectedLabel() {
+    const selectedCheckbox = document.querySelector('.checkbox.selected');
+    if (selectedCheckbox) {
+      const label = selectedCheckbox.querySelector('label');
+      return label ? label.textContent : '';
+    }
+    return '';
+  }
+
+  presenceConfirmation.value = getSelectedLabel();
+
+  checkboxesPresence.forEach(item => {
+    item.addEventListener('click', function() {
+      checkboxesPresence.forEach(checkbox => {
+        checkbox.classList.remove('selected');
+      });
+      item.classList.add('selected');
+      presenceConfirmation.value = getSelectedLabel();
+    });
+  });
+
+  // Função para exibir mensagem de erro em um elemento
+  function showError(element, message) {
+    element.textContent = message;
+  }
+
+  // Função para limpar mensagem de erro de um elemento
+  function clearError(element) {
+    element.textContent = '';
+  }
+
+  // Função para validar o nome
+  function validateName() {
+    const name = nameInput.value.trim();
+    if (name === '') {
+      showError(errorName, 'Preencha este campo.');
+      nameLabel.classList.add('error');
+      nameInput.classList.add('error');
+    } else if (name.length < 3) {
+      showError(errorName, 'Nome deve conter no mínimo 3 caracteres.');
+      nameLabel.classList.add('error');
+      nameInput.classList.add('error');
+    } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+      showError(errorName, 'Não ultilize números e/ou caracteres especiais.');
+      nameLabel.classList.add('error');
+      nameInput.classList.add('error');
+    } else {
+      clearError(errorName);
+      nameLabel.classList.remove('error');
+      nameInput.classList.remove('error');
+    }
+  }
+
+  const contentLoading = document.querySelector('.content-loading');
+
+  function loading() {
+    contentPresence.classList.remove('active');
+    btnBack.classList.remove('active');
+    setTimeout(() => {
+      contentPresence.style.display = 'none';
+      contentLoading.style.display = 'flex';
+    }, 200);
+    setTimeout(() => {
+      contentLoading.classList.add('active');
+    }, 400);
+  }
+
+  // Função para validar o formulário ao ser submetido
+  function validateForm(event) {
+    const name = nameInput.value.trim();
+
+    // Verifica se há erro em cada campo
+    validateName();
+
+    // Verifica se todos os campos estão preenchidos e sem erros
+    if (name === '' || errorName.textContent !== '') {
+      event.preventDefault(); // Impede o envio do formulário se houver erro
+      showError(errorSubmit, 'Por favor, informe seu nome.');
+    } else {
+      clearError(errorSubmit);
+      updateSelectedItemsDisplay(); // Atualiza o campo oculto antes de enviar o formulário
+      loading();
+    }
+  }
+
+  // Adiciona os event listeners para os inputs
+  nameInput.addEventListener('input', validateName);
+
+  // Adiciona o event listener para o botão de submit
+  submitButton.addEventListener('click', validateForm);
 });
