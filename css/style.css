@@ -63,7 +63,7 @@
     transform: translate(-50%, -50%);
     width: 300px;
     height: 230px;
-    z-index: 999999;
+    z-index: 999;
 }
 
 .envelope-wrapper {
@@ -149,7 +149,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -46%);
-    z-index: 99999;
+    z-index: 99;
     transition: all 900ms;
     opacity: 5;
     cursor: pointer;
@@ -375,7 +375,7 @@
     position: fixed;
     right: -50px;
     top: 20px;
-    z-index: 99999999;
+    z-index: 99;
     width: 50px;
     height: 50px;
     padding: 0;
@@ -386,4 +386,172 @@
 
 .btnAudio.active {
     right: 0;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.alert {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 900ms;
+}
+
+.alert span {
+    color: red;
+    background-color: #FFFFFF;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.btnBack {
+    position: fixed;
+    right: -50px;
+    top: 20px;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 15px 0 0 15px;
+    font-size: 2rem;
+    transition: all 600ms;
+    font-size: 2.4rem;
+}
+
+.btnBack.active {
+    right: 0;
+}
+
+.container-modal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-presence {}
+
+.gift-list {
+    display: none;
+}
+
+.model-gift {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gift {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gift-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    background-color: #FFFFFF;
+    height: 24px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.gift-checkbox::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 1.2rem;
+    display: none;
+    color: #FFFFFF;
+}
+
+.gift-checkbox:checked {
+    background-color: #575756;
+}
+
+.gift-checkbox:checked::after {
+    display: block;
+}
+
+.content-gift {
+    width: 330px;
+    height: 530px;
+    border-radius: 15px;
+    background-color: #558EB2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 15px;
+    opacity: 0;
+    transition: all 900ms;
+    transform: translateY(-50px);
+}
+
+.content-gift.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-gift h1 {
+    color: #FFFFFF;
+}
+
+.content-gift-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #FFFFFF;
+    overflow: scroll;
+}
+
+.content-cozinha {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-cozinha:nth-last-child() .content-cozinha h1 {
+    padding: 0 0 15px 0;
+    font-size: 1.4rem;
+}
+
+.content-confirm {
+    width: 100%;
+}
+
+.btnConfirmGift {
+    background-color: #FFFFFF;
+    color: #558EB2;
+    font-weight: 500;
+    width: 100%;
+    height: 50px;
 }

@@ -17,6 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
   const pulse = document.querySelector('.pulse');
   const pulseSpans = document.querySelectorAll('.pulse span');
 
+  const openGiftList = document.querySelector('.openGiftList');
+  const modal = document.querySelector('.modal');
+  const contentGift = document.querySelector('.content-gift');
+  const btnBack = document.querySelector('.btnBack');
+
+  openGiftList.addEventListener('click', () => {
+    modal.classList.add('active');
+    setTimeout(() => {
+      btnBack.classList.add('active');
+      contentGift.classList.add('active');
+    }, 200);
+  });
+
+  btnBack.addEventListener('click', () => {
+    btnBack.classList.remove('active');
+    contentGift.classList.remove('active');
+    setTimeout(() => {
+      modal.classList.remove('active');
+    }, 600);
+  });
+
   setTimeout(() => {
     click.classList.add('active');
   }, 1200);
