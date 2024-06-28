@@ -449,7 +449,7 @@
 }
 
 .content-presence {
-    width: 360px;
+    width: 330px;
     height: auto;
     border-radius: 15px;
     background-color: #558EB2;
@@ -505,7 +505,7 @@
 .box-presence {
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .checkbox {
@@ -578,13 +578,14 @@
     padding-top: 10px;
     display: flex;
     /* flex-direction: column; */
-    gap: 20px;
+    gap: 10px;
 }
 
 .area-btn-addGift button,
 .area-btn-addGift div {
     width: 50%;
     text-align: center;
+    padding: 8px;
 }
 
 .btnAddGift,
@@ -762,7 +763,7 @@
 .content-confirm {
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .content-confirm button {
